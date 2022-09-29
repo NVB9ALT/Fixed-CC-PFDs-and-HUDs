@@ -1,4 +1,4 @@
-//geofs.aircraft.instance.aircraftRecord.fullPath
+//COMPLETE
 
 //Corrected HUD
 instruments.definitions.correctHUD = {
@@ -411,6 +411,19 @@ if (geofs.aircraft.instance.id == 240) {
 	}
 instruments.init(geofs.aircraft.instance.setup.instruments)
 }
+if (geofs.aircraft.instance.id == 2418) {
+   delete geofs.aircraft.instance.setup.instruments.pfd
+	geofs.aircraft.instance.setup.instruments.correctPFD = {
+            "cockpit": {
+                "position": [-0.57, 12, 0.1],
+                "scale": 1.2
+            },
+            "animations": [
+                {"value": "view", "type": "show", "eq": "cockpit"}
+            ]
+	}
+instruments.init(geofs.aircraft.instance.setup.instruments)
+}
 if (geofs.aircraft.instance.id == 242) {
    delete geofs.aircraft.instance.setup.instruments.pfd
 	geofs.aircraft.instance.setup.instruments.correctPFD = {
@@ -448,13 +461,14 @@ if (geofs.aircraft.instance.id == 252) {
                 {"value": "view", "type": "show", "eq": "cockpit"}
             ]
 	}
+instruments.init(geofs.aircraft.instance.setup.instruments)
 }
 if (geofs.aircraft.instance.id == 1069) {
    delete geofs.aircraft.instance.setup.instruments.pfd
 	geofs.aircraft.instance.setup.instruments.correctPFD = {
             "cockpit": {
                 "position": [-0.30208,0.51526,0.25062],
-                "scale": 1.26
+                "scale": 1.1
             },
             "animations": [
                 {"value": "view", "type": "show", "eq": "cockpit"}
@@ -481,6 +495,16 @@ if (geofs.aircraft.instance.id == 2386) {
             "cockpit": {
                 "position": [-0.54926,26.01962,0.13275],
                 "scale": 1.8
+            },
+            "animations": [
+                {"value": "view", "type": "show", "eq": "cockpit"}
+            ]
+	}
+   delete geofs.aircraft.instance.setup.instruments.hud
+	geofs.aircraft.instance.setup.instruments.correctHUD = {
+            "cockpit": {
+                "position": [-0.56,25.73533,0.715],
+                "scale": 0.6
             },
             "animations": [
                 {"value": "view", "type": "show", "eq": "cockpit"}
@@ -545,7 +569,7 @@ if (geofs.aircraft.instance.id == 2769 || geofs.aircraft.instance.id == 2772 || 
 	geofs.aircraft.instance.setup.instruments.correctPFD = {
             "cockpit": {
                 "position": [-0.424992, 16.1147, -0.242363],
-                "scale": 1.2
+                "scale": 1
             },
             "animations": [
                 {"value": "view", "type": "show", "eq": "cockpit"}
@@ -579,7 +603,7 @@ if (geofs.aircraft.instance.id == 2856) {
 	}
 instruments.init(geofs.aircraft.instance.setup.instruments)
 }
-if (geofs.aircraft.instance.id == 2856) {
+if (geofs.aircraft.instance.id == 2857) {
    delete geofs.aircraft.instance.setup.instruments.hud
 	geofs.aircraft.instance.setup.instruments.correctHUD = {
             "cockpit": {
@@ -597,20 +621,7 @@ if (geofs.aircraft.instance.id == 2865 || geofs.aircraft.instance.id == 2870 || 
 	geofs.aircraft.instance.setup.instruments.correctPFD = {
             "cockpit": {
                 "position": [-0.583134, 15.3663, -0.163568],
-                "scale": 1.7
-            },
-            "animations": [
-                {"value": "view", "type": "show", "eq": "cockpit"}
-            ]
-	}
-instruments.init(geofs.aircraft.instance.setup.instruments)
-}
-if (geofs.aircraft.instance.id == 2878 || geofs.aircraft.instance.id == 2879 || geofs.aircraft.instance.id == 3140) {
-   delete geofs.aircraft.instance.setup.instruments.pfd
-	geofs.aircraft.instance.setup.instruments.correctPFD = {
-            "cockpit": {
-                "position": [-0.60629, 14.9225, 0.407638],
-                "scale": 1.38
+                "scale": 1.3
             },
             "animations": [
                 {"value": "view", "type": "show", "eq": "cockpit"}
@@ -662,19 +673,6 @@ if (geofs.aircraft.instance.id == 2976) {
 	geofs.aircraft.instance.setup.instruments.correctPFD = {
             "cockpit": {
                 "position": [-0.332293, 2.86291, 0.220605],
-                "scale": 1.2
-            },
-            "animations": [
-                {"value": "view", "type": "show", "eq": "cockpit"}
-            ]
-	}
-instruments.init(geofs.aircraft.instance.setup.instruments)
-}
-if (geofs.aircraft.instance.id == 3011 || geofs.aircraft.instance.id == 3054 || geofs.aircraft.instance.id == 2769 || geofs.aircraft.instance.id == 2772) {
-   delete geofs.aircraft.instance.setup.instruments.pfd
-	geofs.aircraft.instance.setup.instruments.correctPFD = {
-            "cockpit": {
-                "position": [-0.424992, 16.1147, -0.242363],
                 "scale": 1.2
             },
             "animations": [
@@ -740,7 +738,7 @@ if (geofs.aircraft.instance.id == 3179 || geofs.aircraft.instance.id == 3180) {
 	geofs.aircraft.instance.setup.instruments.correctPFD = {
             "cockpit": {
                 "position": [-0.522624, 29.9254, 0.305779],
-                "scale": 1.6
+                "scale": 1.4
             },
             "animations": [
                 {"value": "view", "type": "show", "eq": "cockpit"}
@@ -840,6 +838,9 @@ if (geofs.aircraft.instance.id == 4172) {
 instruments.init(geofs.aircraft.instance.setup.instruments)
 }
 }
+//add PFD to B-2 Spirit
+//add HUD to A400M
+//Also, add RNAV instruments to airliners and GA aircraft while we're at it.
 changeInstruments()
 var id = null;
 function checkChange() {
@@ -851,7 +852,3 @@ if (geofs.aircraft.instance.id != id) {
 	},4000)
 }
 setInterval(function(){checkChange()},5000)
-//To-do stuff:
-//add PFD to B-2 Spirit
-//add HUD to A400M
-//Also, add RNAV instruments to airliners and GA aircraft while we're at it.
