@@ -1,5 +1,4 @@
-//COMPLETE
-
+function redoPFDSHUDS() {
 //Corrected HUD
 instruments.definitions.correctHUD = {
         "overlay": {
@@ -852,3 +851,4 @@ if (geofs.aircraft.instance.id != id) {
 	},4000)
 }
 setInterval(function(){checkChange()},5000)
+}
